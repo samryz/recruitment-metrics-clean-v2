@@ -102,3 +102,13 @@ def calculate_percentage_change(current, previous):
     if previous == 0:
         return 100 if current > 0 else 0
     return ((current - previous) / previous) * 100
+
+def get_star_recruiter(metrics_df):
+    """Returns the recruiter with the most screens"""
+    return metrics_df.loc[metrics_df['Total Screens'].idxmax(), 'Recruiter']
+
+def get_recruiter_emoji(recruiter, star_recruiter):
+    """Returns appropriate emoji for recruiter"""
+    if recruiter == star_recruiter:
+        return "⭐"
+    return "👩"  # Woman emoji for all other recruiters
